@@ -2,21 +2,20 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prédiction de la Demande en Électricité</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Prédiction de Demande d'Énergie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Prédiction de la Demande en Électricité</h1>
-    <form method="POST">
-        <label for="date">Entrez la date :</label>
-        <input type="date" id="date" name="date" required>
+    <h1>Prédiction de Demande d'Énergie</h1>
+    <form id="predictionForm">
+        <label for="datetime">Date et Heure:</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
         <button type="submit">Prédire</button>
     </form>
-    
-    {% if prediction %}
-    <h2>Résultat de la Prédiction :</h2>
-    <p>La demande prévue pour le {{ date }} est de {{ prediction }} MW.</p>
-    {% endif %}
+    <h2>Résultats:</h2>
+    <p>Modèle 1: <span id="model1Result"></span></p>
+    <p>Modèle 2: <span id="model2Result"></span></p>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
